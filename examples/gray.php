@@ -1,6 +1,6 @@
 <?php
-use Zaachi\Image\Filter;
-require '../vendor/autoload.php';
+
+require '../src/Image/Filter.php';
 
 $image = imagecreatefromjpeg(isset($argv[1]) ? $argv[1] : "example.jpg");
 

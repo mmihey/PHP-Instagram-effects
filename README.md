@@ -6,12 +6,11 @@ PHP class for photo effects similar to Instagram
 ## Usage
 
 ```php
-use Zaachi\Image\Filter;
-require 'vendor/autoload.php';
+require 'src/Image/Filter.php';
 
 $image = imagecreatefromjpeg("/path/to/image.jpg");
 
-$filter = (new Filter($image))->aqua();
+$filter = (new vcImageFilter($image))->aqua();
 
 header('Content-type: image/jpeg');
 imagejpeg($filter->getImage());
