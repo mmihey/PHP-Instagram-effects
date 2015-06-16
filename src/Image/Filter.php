@@ -218,4 +218,67 @@ class vcImageFilter {
 		return $this;
 	}
 
+	public function rain() {
+		imagefilter( $this->image, IMG_FILTER_GAUSSIAN_BLUR );
+		imagefilter( $this->image, IMG_FILTER_MEAN_REMOVAL );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 80, 50, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_SMOOTH, 10 );
+
+		return $this;
+	}
+
+	public function orangepeel() {
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 100, 20, - 50, 20 );
+		imagefilter( $this->image, IMG_FILTER_SMOOTH, 10 );
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 10 );
+		imagefilter( $this->image, IMG_FILTER_CONTRAST, 10 );
+		imagegammacorrect( $this->image, 1, 1.2 );
+
+		return $this;
+	}
+
+	public function darken() {
+		imagefilter( $this->image, IMG_FILTER_GRAYSCALE );
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 50 );
+
+		return $this;
+	}
+
+	public function summer() {
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 150, 0, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 25, 50, 0, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+
+		return $this;
+	}
+
+	public function retro() {
+		imagefilter( $this->image, IMG_FILTER_GRAYSCALE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 100, 25, 25, 50 );
+
+		return $this;
+	}
+
+	public function country() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 30 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 50, 50, 50, 50 );
+		imagegammacorrect( $this->image, 1, 0.3 );
+
+		return $this;
+	}
+
+	public function washed() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, 30 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, - 50, 0, 20, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, 10 );
+		imagegammacorrect( $this->image, 1, 1.2 );
+
+		return $this;
+	}
+
 }
