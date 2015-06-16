@@ -40,7 +40,7 @@ class vcImageFilter {
 
 		return $this;
 	}
-	
+
 	public function sharpen() {
 		$gaussian = array(
 			array( 1.0, 1.0, 1.0 ),
@@ -138,6 +138,82 @@ class vcImageFilter {
 		imagefilter( $this->image, IMG_FILTER_GAUSSIAN_BLUR );
 		imagefilter( $this->image, IMG_FILTER_CONTRAST, - 15 );
 		imagefilter( $this->image, IMG_FILTER_SMOOTH, - 2 );
+
+		return $this;
+	}
+
+	public function vintage() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, 10 );
+		imagefilter( $this->image, IMG_FILTER_GRAYSCALE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 40, 10, - 15 );
+
+		return $this;
+	}
+
+	public function concentrate() {
+		imagefilter( $this->image, IMG_FILTER_GAUSSIAN_BLUR );
+		imagefilter( $this->image, IMG_FILTER_SMOOTH, - 10 );
+
+		return $this;
+	}
+
+	public function hermajesty() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 10 );
+		imagefilter( $this->image, IMG_FILTER_CONTRAST, - 5 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 80, 0, 60 );
+
+		return $this;
+	}
+
+	public function everglow() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 30 );
+		imagefilter( $this->image, IMG_FILTER_CONTRAST, - 5 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 30, 30, 0 );
+
+		return $this;
+	}
+
+	public function freshblue() {
+		imagefilter( $this->image, IMG_FILTER_CONTRAST, - 5 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 20, 0, 80, 60 );
+
+		return $this;
+	}
+
+	public function tender() {
+		imagefilter( $this->image, IMG_FILTER_CONTRAST, 5 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 80, 20, 40, 50 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 40, 40, 100 );
+		imagefilter( $this->image, IMG_FILTER_SELECTIVE_BLUR );
+
+		return $this;
+	}
+
+	public function dream() {
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 150, 0, 0, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 50, 0, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_GAUSSIAN_BLUR );
+
+		return $this;
+	}
+
+	public function frozen() {
+		imagefilter( $this->image, IMG_FILTER_BRIGHTNESS, - 15 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 0, 100, 50 );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 0, 100, 50 );
+		imagefilter( $this->image, IMG_FILTER_GAUSSIAN_BLUR );
+
+		return $this;
+	}
+
+	public function forest() {
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 0, 150, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_COLORIZE, 0, 0, 150, 50 );
+		imagefilter( $this->image, IMG_FILTER_NEGATE );
+		imagefilter( $this->image, IMG_FILTER_SMOOTH, 10 );
 
 		return $this;
 	}
